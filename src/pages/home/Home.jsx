@@ -50,7 +50,7 @@ const Home = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-yellow-50 to-white " id="home">
+    <section className="min-h-screen bg-gradient-to-b from-yellow-50 to-white  overflow-hidden" id="home">
       <ToastContainer />
 
       {/* Main Content */}
