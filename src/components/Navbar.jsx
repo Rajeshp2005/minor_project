@@ -37,16 +37,21 @@ const Navbar = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
+    setNav(false);
   };
 
   const handleHomeClick = (e) => {
     e.preventDefault();
-    navigate('/');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+    setNav(false);
   };
 
   const links = [
-    { id: 1, data: "home", path: "/", section: "home" },
+    
     { id: 2, data: "about", path: "/about", section: "about" },
     { id: 3, data: "features", path: "/features", section: "features" },
     { id: 4, data: "how it work", path: "/how-to-use", section: "how-it-works" },
@@ -54,12 +59,19 @@ const Navbar = () => {
     { id: 6, data: "contact", path: "/contact", section: "contact" }
   ];
 
-  const isLinkActive = (path) => {
+  const isLinkActive = (path, section) => {
+    if (location.pathname === '/' && section) {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top >= 0 && rect.bottom <= window.innerHeight;
+      }
+    }
     return location.pathname === path;
   };
 
   const renderLink = (link, onClick = null) => {
-    const isActive = isLinkActive(link.path);
+    const isActive = isLinkActive(link.path, link.section);
     const baseClasses = "capitalize transition-colors duration-300";
     const activeClasses = isActive ? "text-purple-600 font-bold" : "text-gray-700 hover:text-purple-600";
 
@@ -77,6 +89,14 @@ const Navbar = () => {
       </Link>
     );
   };
+
+  useEffect(() => {
+    if (nav) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [nav]);
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -107,7 +127,7 @@ const Navbar = () => {
             <li
               key={link.id}
               className={`text-lg font-semibold p-2 rounded-lg hover:bg-gray-100  transition-all duration-300 ease-in-out ${
-                isLinkActive(link.path) ? 'bg-gray-100' : ''
+                isLinkActive(link.path, link.section) ? 'bg-gray-100' : ''
               }`}
             >
               {renderLink(link)}
@@ -125,7 +145,7 @@ const Navbar = () => {
               <li
                 key={link.id}
                 className={`text-xl font-semibold capitalize transition-all duration-300 ease-in-out ${
-                  isLinkActive(link.path) 
+                  isLinkActive(link.path, link.section) 
                     ? 'text-purple-600' 
                     : 'text-gray-800 hover:text-purple-600'
                 }`}
