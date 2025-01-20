@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronDown } from 'react-icons/fa';
-
+import { HashLink as Link } from 'react-router-hash-link';
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -97,26 +97,7 @@ const Faq = () => {
           ))}
         </div>
 
-        {/* Contact Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 text-center bg-purple-50 rounded-xl p-8"
-        >
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Still have questions?
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Can't find the answer you're looking for? Please reach out to our support team.
-          </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors duration-300"
-          >
-            Contact Support
-          </a>
-        </motion.div>
+       
       </div>
     </div>
   );
