@@ -117,7 +117,7 @@ const Contact = () => {
         theme="colored"
       />
       
-      <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-white py-20">
+      <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-white py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
@@ -159,14 +159,6 @@ const Contact = () => {
                 <span className="font-medium text-sm sm:text-base break-all sm:break-normal">{contactInfo.email}</span>
               </motion.a>
             </div>
-
-            <Link
-              to="/faq"
-              className="inline-flex items-center space-x-2 text-purple-600 hover:text-green-600 transition-colors duration-300 text-sm sm:text-base"
-            >
-              <FaQuestionCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>Check our FAQ first</span>
-            </Link>
           </motion.div>
 
           {/* Contact Form */}

@@ -51,7 +51,7 @@ const Navbar = () => {
   };
 
   const links = [
-    
+    { id: 1, data: "home", path: "/", section: "home" },
     { id: 2, data: "about", path: "/about", section: "about" },
     { id: 3, data: "features", path: "/features", section: "features" },
     { id: 4, data: "how it work", path: "/how-to-use", section: "how-it-works" },
@@ -73,7 +73,7 @@ const Navbar = () => {
   const renderLink = (link, onClick = null) => {
     const isActive = isLinkActive(link.path, link.section);
     const baseClasses = "capitalize transition-colors duration-300";
-    const activeClasses = isActive ? "text-purple-600 font-bold" : "text-gray-700 hover:text-purple-600";
+    const activeClasses = isActive ? "bg-gray-100 text-purple-600 font-bold" : "text-gray-700 hover:text-purple-600";
 
     return (
       <Link 
@@ -126,7 +126,7 @@ const Navbar = () => {
           {links.map((link, index) => (
             <li
               key={link.id}
-              className={`text-lg font-semibold p-2 rounded-lg hover:bg-gray-100  transition-all duration-300 ease-in-out ${
+              className={`text-lg font-semibold p-2 rounded-lg hover:bg-gray-100 transition-all duration-300 ease-in-out ${
                 isLinkActive(link.path, link.section) ? 'bg-gray-100' : ''
               }`}
             >
@@ -146,7 +146,7 @@ const Navbar = () => {
                 key={link.id}
                 className={`text-xl font-semibold capitalize transition-all duration-300 ease-in-out ${
                   isLinkActive(link.path, link.section) 
-                    ? 'text-purple-600' 
+                    ? 'bg-gray-100 text-purple-600' 
                     : 'text-gray-800 hover:text-purple-600'
                 }`}
                 data-aos="fade-up"
