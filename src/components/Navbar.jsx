@@ -51,7 +51,7 @@ const Navbar = () => {
   };
 
   const links = [
-    { id: 1, data: "home", path: "/", section: "home" },
+    
     { id: 2, data: "about", path: "/about", section: "about" },
     { id: 3, data: "features", path: "/features", section: "features" },
     { id: 4, data: "how it work", path: "/how-to-use", section: "how-it-works" },
@@ -126,7 +126,11 @@ const Navbar = () => {
           {links.map((link, index) => (
             <li
               key={link.id}
+<<<<<<< HEAD
               className={`text-lg font-semibold p-2 rounded-lg hover:bg-gray-100 transition-all duration-300 ease-in-out ${
+=======
+              className={`text-lg font-semibold p-2 rounded-lg hover:bg-gray-100  transition-all duration-300 ease-in-out ${
+>>>>>>> f618d40 (first-commit)
                 isLinkActive(link.path, link.section) ? 'bg-gray-100' : ''
               }`}
             >
@@ -146,7 +150,11 @@ const Navbar = () => {
                 key={link.id}
                 className={`text-xl font-semibold capitalize transition-all duration-300 ease-in-out ${
                   isLinkActive(link.path, link.section) 
+<<<<<<< HEAD
                     ? 'bg-gray-100 text-purple-600' 
+=======
+                    ? 'text-purple-600' 
+>>>>>>> f618d40 (first-commit)
                     : 'text-gray-800 hover:text-purple-600'
                 }`}
                 data-aos="fade-up"
