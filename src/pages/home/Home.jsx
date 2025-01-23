@@ -50,7 +50,11 @@ const Home = () => {
   };
 
   return (
+<<<<<<< HEAD
     <section className="min-h-screen bg-gradient-to-b from-yellow-50 to-white  overflow-hidden" id="home">
+=======
+    <section className="min-h-screen bg-gradient-to-b from-yellow-50 to-white " id="home">
+>>>>>>> 4bd4607 (first-commit)
       <ToastContainer />
 
       {/* Main Content */}
