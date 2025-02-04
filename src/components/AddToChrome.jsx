@@ -7,7 +7,7 @@ const AddToChrome = ({ className = '', isMobile = false }) => {
       className={`${className} ${isMobile ? 'mt-6' : 'mb-0'}`}
     >
       <a 
-        href="#"
+        href="../popup.html"
         className={`inline-flex items-center ${isMobile ? 'px-6 py-3' : 'px-4 py-2'} bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-semibold shadow-md hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 ease-in-out`}
         target="_blank"
         rel="noopener noreferrer"

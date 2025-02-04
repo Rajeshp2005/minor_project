@@ -12,18 +12,18 @@ const Footer = () => {
     },
     {
       name: 'Sonu Gupta',
-      github: 'https://github.com/sonu-gupta',
+      github: 'https://github.com/creationsbysonu',
       linkedin: 'https://linkedin.com/in/sonu-gupta'
     },
     {
       name: 'Ravi Pandit',
-      github: 'https://github.com/ravi-pandit',
-      linkedin: 'https://linkedin.com/in/ravi-pandit'
+      github: 'https://github.com/ravix2001',
+      linkedin: 'https://www.linkedin.com/in/ravipandit2001/'
     },
     {
       name: 'Nigam Yadav',
-      github: 'https://github.com/nigam-yadav',
-      linkedin: 'https://linkedin.com/in/nigam-yadav'
+      github: 'https://github.com/nigamyadav72',
+      linkedin: 'https://www.linkedin.com/in/nigam-yadav-099447199/'
     }
   ];
 

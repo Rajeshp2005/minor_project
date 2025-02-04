@@ -126,15 +126,7 @@ const Navbar = () => {
           {links.map((link, index) => (
             <li
               key={link.id}
-<<<<<<< HEAD
-<<<<<<< HEAD
               className={`text-lg font-semibold p-2 rounded-lg hover:bg-gray-100 transition-all duration-300 ease-in-out ${
-=======
-              className={`text-lg font-semibold p-2 rounded-lg hover:bg-gray-100  transition-all duration-300 ease-in-out ${
->>>>>>> f618d40 (first-commit)
-=======
-              className={`text-lg font-semibold p-2 rounded-lg hover:bg-gray-100 transition-all duration-300 ease-in-out ${
->>>>>>> 4bd4607 (first-commit)
                 isLinkActive(link.path, link.section) ? 'bg-gray-100' : ''
               }`}
             >
@@ -154,15 +146,7 @@ const Navbar = () => {
                 key={link.id}
                 className={`text-xl font-semibold capitalize transition-all duration-300 ease-in-out ${
                   isLinkActive(link.path, link.section) 
-<<<<<<< HEAD
-<<<<<<< HEAD
                     ? 'bg-gray-100 text-purple-600' 
-=======
-                    ? 'text-purple-600' 
->>>>>>> f618d40 (first-commit)
-=======
-                    ? 'bg-gray-100 text-purple-600' 
->>>>>>> 4bd4607 (first-commit)
                     : 'text-gray-800 hover:text-purple-600'
                 }`}
                 data-aos="fade-up"

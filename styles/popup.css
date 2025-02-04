@@ -1,5 +1,72 @@
-.style{
-    font-family: 'Courier New', Courier, monospace;
-    width: 420px;
-    height: 420px;
+.container{
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    height: 70vh;
+    width: 35vw;
+    float: right;
+    border-radius: 25px;
+    position: relative;
+    left: -1%;
+    
+}
+p{
+    color: antiquewhite;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 30px;
+    text-align: center;
+    text-align:start;
+    word-spacing: -1px;
+    
+}
+
+ h1{
+     color: #fff;
+     background-color: blueviolet;
+     padding: 10px;
+     border-radius: 50px;
+     display: flex;
+     align-items: center;
+     justify-content:  center;
+     
  }
+
+ button{
+    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid brown;
+    background-color: wheat;
+    font-weight: 700;
+   
+    
+ }
+ button:hover{
+    background-color: chocolate;
+    transition: all 0.5s ease-in-out;
+    color: wheat;
+    
+ }
+
+@media screen and (max-width:600px){
+    p{
+        
+       font-size:medium;
+       width: 100%;
+       margin-left: -5px;
+    }
+    h1{
+        font-size: large;
+    }
+}
+
+@media screen and (max-width:380px){
+    p{
+        
+       font-size:smaller;
+       width: 100%;
+       margin-left: -5px;
+       
+    }
+    h1{
+        font-size: small;
+    }
+}
