@@ -264,13 +264,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('dark-mode');
         localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
         
-        // Add ripple effect
-        const button = document.getElementById('darkModeToggle');
-        const ripple = document.createElement('span');
-        ripple.classList.add('ripple-effect');
-        button.appendChild(ripple);
+        // // Add ripple effect
+        // const button = document.getElementById('darkModeToggle');
+        // const ripple = document.createElement('span');
+        // ripple.classList.add('ripple-effect');
+        // button.appendChild(ripple);
         
-        setTimeout(() => ripple.remove(), 1000);
+        // setTimeout(() => ripple.remove(), 1000);
     });
 
     // Enhanced analyze button with loading state
