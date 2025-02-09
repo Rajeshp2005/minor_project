@@ -1,9 +1,0 @@
-{
-  "manifest_version": 3,
-  "name": "Product Review Analyzer",
-  "version": "1.0",
-  "description": "Analyze product reviews on e-commerce websites using Natural Language Processing.",
-  "action": {
-    "default_popup": "popup.html"
-  }
-}

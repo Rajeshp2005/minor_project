@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Daraz Review Insight",
+  "version": "1.0",
+  "description": "AI-Powered Review Analysis",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "*://*.daraz.com.np/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

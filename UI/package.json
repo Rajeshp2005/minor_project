@@ -11,9 +11,12 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "chart.js": "^4.4.7",
     "framer-motion": "^11.18.1",
     "hooks": "^0.3.2",
     "react": "^18.3.1",
+    "react-chart": "^0.0.1",
+    "react-chartjs-2": "^5.3.0",
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
     "react-router-dom": "^7.1.3",

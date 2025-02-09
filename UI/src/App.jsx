@@ -11,6 +11,7 @@ import HowItWork from './pages/howItWork/HowItWork';
 import Faq from './components/Faq';
 import Contact from './pages/message/Contact';
 
+
 const App = () => {
   const [loading, setLoading] = useState(true);
 
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="/faq" element={<Faq />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
+       
           <BackToTop />
           <Footer />
         </div>
