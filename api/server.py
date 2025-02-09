@@ -100,7 +100,9 @@ def scrape_reviews(url):
             
             # Try clicking the next page
             try:
-                next_button = driver.find_element(By.CSS_SELECTOR, '.ant-pagination-next')
+                
+                next_button = driver.find_element(By.XPATH, '//button[contains(@class, "next-pagination-item next")]')
+                next_button.click()
                 if 'ant-pagination-disabled' in next_button.get_attribute("class"):
                     print("No more pages")
                     break
