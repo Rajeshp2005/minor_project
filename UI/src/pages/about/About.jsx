@@ -38,31 +38,32 @@ const About = () => {
     {
       name: 'Rajesh Pandey',
       role: 'Computer Engineer',
-      github: 'https://github.com/rajeshpandey179',
-      linkedin: 'https://linkedin.com/in/rajesh-pandey',
+      github: 'https://github.com/Rajeshp2005',
+      linkedin: 'https://www.linkedin.com/in/rajesh-pandey-915649286/',
       image: 'https://www.rajeshpandey10.com.np/assets/img/mee.png'
     },
-    {
-      name: 'Sonu Gupta',
-      role: 'Computer Engineer',
-      github: 'https://github.com/sonu-gupta',
-      linkedin: 'https://linkedin.com/in/sonu-gupta',
-      image: '' // Add image URL when available
-    },
+   
     {
       name: 'Ravi Pandit',
       role: 'Computer Engineer',
-      github: 'https://github.com/ravi-pandit',
-      linkedin: 'https://linkedin.com/in/ravi-pandit',
-      image: '' // Add image URL when available
+      github: 'https://github.com/ravix2001',
+      linkedin: 'https://www.linkedin.com/in/ravipandit2001/',
+      image: 'https://www.ravi-pandit.com.np/image1.png' // Add image URL when available
     },
     {
       name: 'Nigam Yadav',
       role: 'Computer Engineer',
-      github: 'https://github.com/nigam-yadav',
-      linkedin: 'https://linkedin.com/in/nigam-yadav',
-      image: '' // Add image URL when available
-    }
+      github: 'https://github.com/nigamyadav72',
+      linkedin: 'https://www.linkedin.com/in/nigam-yadav-099447199/',
+      image: 'https://www.nigamyadav.com.np/image/new%20pp.jpeg' // Add image URL when available
+    },
+    {
+      name: 'Sonu Gupta',
+      role: 'Computer Engineer',
+      github: 'https://github.com/sonu-gupta',//https://github.com/creationsbysonu
+      linkedin: 'https://www.linkedin.com/in/sonu-gupta-681329340/',
+      image: 'https://www.guptasonu.com.np/assets/photo-BiFIU-sz.jpg' // Add image URL when available
+    },
   ];
 
   return (

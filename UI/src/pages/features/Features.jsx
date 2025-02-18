@@ -21,8 +21,8 @@ const Features = () => {
     },
     {
       icon: <FaShieldAlt className="w-8 h-8 text-purple-600" />,
-      title: "Fake Review Detection",
-      description: "Advanced algorithms to identify potentially fake or biased reviews for better decision making."
+      title: "Confident Score",
+      description: "Used Compound score and provide a confident score to help you understand the true product quality."
     },
     {
       icon: <FaBolt className="w-8 h-8 text-purple-600" />,
@@ -31,8 +31,8 @@ const Features = () => {
     },
     {
       icon: <FaChartLine className="w-8 h-8 text-purple-600" />,
-      title: "Trend Analysis",
-      description: "Track product sentiment trends over time to make informed purchasing decisions."
+      title: "Recomondation",
+      description: "recomonding product based on the review  and confident scorre",
     }
   ];
 

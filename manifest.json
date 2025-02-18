@@ -5,7 +5,8 @@
   "description": "AI-Powered Review Analysis",
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "storage"
   ],
   "host_permissions": [
     "http://localhost:8000/*",

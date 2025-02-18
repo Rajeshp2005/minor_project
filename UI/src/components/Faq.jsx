@@ -12,7 +12,7 @@ const Faq = () => {
     },
     {
       question: 'How does the review analysis work?',
-      answer: 'Our AI system processes reviews using advanced natural language processing techniques. It analyzes sentiment, identifies key product features, detects fake reviews, and provides a comprehensive summary to help you understand the true product quality.'
+      answer: 'Our AI system processes reviews using advanced natural language processing techniques. It analyzes sentiment, identifies key product features, confident score, and provides a comprehensive summary to help you understand the true product quality.'
     },
     {
       question: 'Is the browser extension free to use?',
@@ -20,12 +20,9 @@ const Faq = () => {
     },
     {
       question: 'Which e-commerce platforms are supported?',
-      answer: 'Currently, we support major e-commerce platforms including Amazon, Flipkart, and other popular online shopping sites. We are continuously working to add support for more platforms.'
+      answer: 'Currently, we support Daraz. We are continuously working to add support for more platforms.'
     },
-    {
-      question: 'How accurate is the fake review detection?',
-      answer: 'Our fake review detection system uses multiple parameters and machine learning algorithms to identify suspicious patterns. While no system is perfect, our accuracy rate is consistently high and improving with continuous learning.'
-    },
+   
     {
       question: 'How can I contact support?',
       answer: 'You can reach our support team through the contact form on our website or by emailing imrajesh2005@gmail.com We typically respond within 24 hours.'

@@ -127,12 +127,10 @@ def analyze_reviews():
     """Analyzes sentiment and generates a report from the scraped reviews."""
     df = pd.read_csv('reviews.csv')
     analyzer = SentimentIntensityAnalyzer()
-    
     # Sentiment Analysis
     df['sentiment_scores'] = df['reviewText'].apply(analyzer.polarity_scores)
     df['sentiment'] = df['sentiment_scores'].apply(
-        lambda x: 'Positive' if x['compound'] > 0 else 'Negative' if x['compound'] < 0 else 'Neutral')
-    
+        lambda x: 'positive' if x['compound'] > 0 else 'negative' if x['compound'] < 0 else 'neutral')
     # Generate sentiment plot
     plt.figure(figsize=(10, 6))
     sns.countplot(data=df, x='sentiment')
@@ -141,11 +139,13 @@ def analyze_reviews():
         os.makedirs('static')
     plt.savefig('static/sentiment.png')
     plt.close()
-    
+    sentiment_distribution = df['sentiment'].value_counts(normalize=True).to_dict()
+    # Ensure keys are lowercase for frontend compatibility
+    sentiment_distribution = {k.lower(): v * 100 for k, v in sentiment_distribution.items()}
     return {
         'confidence_score': float((df['sentiment_scores'].apply(lambda x: x['compound']).mean() + 1) / 2 * 10),
         'total_reviews': len(df),
-        'sentiment_distribution': df['sentiment'].value_counts(normalize=True).to_dict(),
+        'sentiment_distribution': sentiment_distribution,
         'sentiment_plot': 'static/sentiment.png'
     }
 
@@ -172,5 +172,12 @@ def analyze():
         print(f"Error: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
+@app.route('/previous-analyses', methods=['GET'])
+def get_previous_analyses():
+    if not os.path.exists('analysis_results.json'):
+        return jsonify([])
+    with open('analysis_results.json', 'r') as f:
+        data = json.load(f)
+    return jsonify(data)
 if __name__ == '__main__':
     app.run(port=8000, debug=True)
