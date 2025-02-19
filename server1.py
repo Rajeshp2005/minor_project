@@ -125,10 +125,10 @@ def scrape_reviews(url):
     return len(reviews_list)
 
 # Load the trained RandomForest model and vectorizer
-with open('C:\\Users\\Ravi\\Downloads\\minor_project-rajesh\\minor_project-rajesh\\api\\model_RandomForestClassifier.pkl', 'rb') as file:
+with open('model_RandomForestClassifier.pkl', 'rb') as file:
     model = pickle.load(file)
 
-with open('C:\\Users\\Ravi\\Downloads\\minor_project-rajesh\\minor_project-rajesh\\api\\vectorizer.pkl', 'rb') as file:
+with open('vectorizer.pkl', 'rb') as file:
     vectorizer = pickle.load(file)
 
 # Function to analyze reviews using the RandomForest model
