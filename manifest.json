@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Daraz Review Insight",
+  "name": "Product Review Insight",
   "version": "1.0",
   "description": "AI-Powered Review Analysis",
   "permissions": [
