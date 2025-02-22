@@ -126,12 +126,18 @@ def scrape_reviews(url):
     
     return len(reviews_list)
 
+# Download the trained RandomForest model from Google Drive
 import gdown
 
+download_dir = "C:/Users/Ravi/minor_project-main/api/"  # Change this to your desired path
+output = os.path.join(download_dir, "model_RandomForestClassifier.pkl")
 file_id = "1tBQkSIB5Pt4v345M5FO2sw0OZnet-MOe"  # Replace with your actual file ID
-output = "model_RandomForestClassifier.pkl"
 
-gdown.download(f"https://drive.google.com/uc?id={file_id}", output, quiet=False)
+if not os.path.exists(output):
+    print("Model file not found. Downloading now...")
+    gdown.download(f"https://drive.google.com/uc?id={file_id}", output, quiet=False)
+else:
+    print("Model file already exists. Skipping download.")
 
 # Load the trained RandomForest model and vectorizer
 with open(output, 'rb') as file:
@@ -143,7 +149,7 @@ print("Model loaded successfully!")
 # with open('model_RandomForestClassifier.pkl', 'rb') as file:
 #     model = pickle.load(file)
 
-with open('vectorizer.pkl', 'rb') as file:
+with open('C:/Users/Ravi/minor_project-main/api/vectorizer.pkl', 'rb') as file:
     vectorizer = pickle.load(file)
 
 # Function to analyze reviews using the RandomForest model
@@ -217,7 +223,7 @@ def analyze_reviews_with_rf():
     df[['reviewText', 'sentiment', 'compound']].to_csv('review_with_compound_scores.csv', index=False)
 
     # Calculate the overall compound score
-    compound_score = (df['compound'].mean()) * 10  # Scale compound score to 0-10
+    compound_score = (df['compound'].mean()+1)/2 * 10  # Scale compound score to 0-10
 
     # # Display results
     # print("SENTIMENT DISTRIBUTION".center(50, '-'))
