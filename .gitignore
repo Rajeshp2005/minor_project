@@ -1,4 +1,3 @@
 train_dataset.csv
 model_RandomForestClassifier.pkl
-vectorizer.pkl
 label_encoder.pkl

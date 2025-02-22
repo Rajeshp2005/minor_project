@@ -126,9 +126,22 @@ def scrape_reviews(url):
     
     return len(reviews_list)
 
+import gdown
+
+file_id = "1tBQkSIB5Pt4v345M5FO2sw0OZnet-MOe"  # Replace with your actual file ID
+output = "model_RandomForestClassifier.pkl"
+
+gdown.download(f"https://drive.google.com/uc?id={file_id}", output, quiet=False)
+
 # Load the trained RandomForest model and vectorizer
-with open('model_RandomForestClassifier.pkl', 'rb') as file:
+with open(output, 'rb') as file:
     model = pickle.load(file)
+
+print("Model loaded successfully!")
+
+# # If you want to load the model from a local file, use the following code instead
+# with open('model_RandomForestClassifier.pkl', 'rb') as file:
+#     model = pickle.load(file)
 
 with open('vectorizer.pkl', 'rb') as file:
     vectorizer = pickle.load(file)
