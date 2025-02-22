@@ -16,6 +16,8 @@ import time
 import pickle
 import os
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from deep_translator import GoogleTranslator
+from langdetect import detect
 
 app = Flask(__name__)
 CORS(app)
@@ -124,11 +126,25 @@ def scrape_reviews(url):
     
     return len(reviews_list)
 
+# Download the trained RandomForest model from Google Drive
+import gdown
+
+file_id = "1tBQkSIB5Pt4v345M5FO2sw0OZnet-MOe"  # Replace with your actual file ID
+output = "model_RandomForestClassifier.pkl"
+
+gdown.download(f"https://drive.google.com/uc?id={file_id}", output, quiet=False)
+
 # Load the trained RandomForest model and vectorizer
-with open('//Users//rajeshpandey//Documents//PAFR//api//model_RandomForestClassifier.pkl', 'rb') as file:
+with open(output, 'rb') as file:
     model = pickle.load(file)
 
-with open('//Users//rajeshpandey//Documents//PAFR//api//vectorizer.pkl', 'rb') as file:
+print("Model loaded successfully!")
+
+# # If you want to load the model from a local file, use the following code instead
+# with open('model_RandomForestClassifier.pkl', 'rb') as file:
+#     model = pickle.load(file)
+
+with open('vectorizer.pkl', 'rb') as file:
     vectorizer = pickle.load(file)
 
 # Function to analyze reviews using the RandomForest model
@@ -139,8 +155,26 @@ def analyze_reviews_with_rf():
     # Handle missing values in the reviewText column
     df['reviewText'] = df['reviewText'].fillna('')  # Replace NaN with an empty string
 
+    # Function to translate text to English
+    def translate_to_english(text):
+        try:
+            lang = detect(text)  # Detect language
+            if lang != "en":  # If not English, translate
+                return GoogleTranslator(source='auto', target='en').translate(text)
+            return text  # If already English, return as is
+        except:
+            return text  # If detection fails, return original
+
+    # Apply translation to reviewText column
+    df["translated_review"] = df["reviewText"].astype(str).apply(translate_to_english)
+
+    # Save the translated dataset
+    df.to_csv("translated_reviews.csv", index=False)
+
+    print("Translation completed and saved!")
+
     # Transform reviews using the saved vectorizer
-    X_test = vectorizer.transform(df['reviewText'])
+    X_test = vectorizer.transform(df['translated_review'])
 
     # Make predictions with the RandomForest model
     predictions = model.predict(X_test)

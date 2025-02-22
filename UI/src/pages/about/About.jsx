@@ -48,7 +48,7 @@ const About = () => {
       role: 'Computer Engineer',
       github: 'https://github.com/ravix2001',
       linkedin: 'https://www.linkedin.com/in/ravipandit2001/',
-      image: 'https://www.ravi-pandit.com.np/image1.png' // Add image URL when available
+      image: 'https://media-del1-2.cdn.whatsapp.net/v/t61.24694-24/466699406_999616012184444_2368940458060533403_n.jpg?ccb=11-4&oh=01_Q5AaIIt_BuGm9-zkPnGjRcjrU98l_8dfZ9Pdq0jq3ihW3gZ2&oe=67C14E5F&_nc_sid=5e03e0&_nc_cat=106' // Add image URL when available
     },
     {
       name: 'Nigam Yadav',
@@ -203,7 +203,7 @@ const About = () => {
               >
                 {/* Circular Image Container */}
                 <div className="relative mb-6 transform transition-all duration-300 group-hover:scale-110">
-                  <div className="w-48 h-48 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 p-1 transition-all duration-300 group-hover:from-green-400 group-hover:to-green-600">
+                  <div className="w-48 h-48 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 p-1 transition-all duration-300 ">
                     <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:bg-green-50">
                       {member.image ? (
                         <img
@@ -225,7 +225,7 @@ const About = () => {
                     </div>
                   </div>
                   {/* Hover Effect Ring */}
-                  <div className="absolute -inset-2 rounded-full bg-green-200 opacity-0 scale-0 transform transition-all duration-300 group-hover:opacity-20 group-hover:scale-100" />
+                  <div className="absolute -inset-2 rounded-full bg-black opacity-1 scale-0 transform transition-all duration-300 group-hover:opacity-25 group-hover:scale-90" />
                 </div>
 
                 {/* Member Info */}
