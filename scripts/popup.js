@@ -76,9 +76,15 @@ async function runAnalysis(elements) {
         neutral: parseFloat(results.sentiment_distribution.neutral) || 0
       });
     }
-    // Prevent image caching by appending a timestamp
+    // Prevent caching and use full URL for the sentiment image
     const timestamp = new Date().getTime();
-    document.getElementById('sentimentPlot').src = `${results.sentiment_plot}?t=${timestamp}`;
+    const sentimentPlotUrl = `http://localhost:8000/${results.sentiment_plot}?t=${timestamp}`;
+    document.getElementById('sentimentPlot').src = sentimentPlotUrl;
+    document.getElementById('sentimentPlot').classList.remove("hidden");
+    document.getElementById('loadingSpinner').classList.add("hidden");
+
+    // Update recommendation based on confidence score
+    updateRecommendation(elements, parseFloat(results.confidence_score) || 0);
 
     elements.loadingState.classList.add('hidden');
     elements.results.classList.remove('hidden');
@@ -89,6 +95,31 @@ async function runAnalysis(elements) {
   } finally {
     elements.analyzeBtn.disabled = false;
   }
+}
+
+function updateRecommendation(elements, confidenceScore) {
+  const recommendationContainer = document.getElementById('recommendations');
+  recommendationContainer.innerHTML = ''; // Clear previous recommendations
+
+  let recommendationText = '';
+  let recommendationClass = '';
+
+  if (confidenceScore >= 7) {
+    recommendationText = 'Excellent! You can go with this product.';
+    recommendationClass = 'bg-green-100 text-green-800';
+  } else if (confidenceScore >= 5) {
+    recommendationText = 'Could be better. Average product.';
+    recommendationClass = 'bg-yellow-100 text-yellow-800';
+  } else {
+    recommendationText = 'Not recommended. Consider other options.';
+    recommendationClass = 'bg-red-100 text-red-800';
+  }
+
+  const recommendationDiv = document.createElement('div');
+  recommendationDiv.className = `p-4 rounded ${recommendationClass}`;
+  recommendationDiv.textContent = recommendationText;
+
+  recommendationContainer.appendChild(recommendationDiv);
 }
 
 function updateResults(elements, data) {
@@ -265,11 +296,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('progressBar').style.width = `${progress}%`;
         if (progress >= 100) {
           clearInterval(progressInterval);
-          analyzeLogic();
-        
-
+          // Removed analyzeLogic(); as it is undefined.
+          runAnalysis(elements);
         }
-
       }, 50);
       
       // ...
