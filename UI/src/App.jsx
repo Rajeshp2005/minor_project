@@ -10,7 +10,7 @@ import Features from './pages/features/Features';
 import HowItWork from './pages/howItWork/HowItWork';
 import Faq from './components/Faq';
 import Contact from './pages/message/Contact';
-import WatchDemo from './components/WatchDemo.jsx';
+
 
 
 const App = () => {
