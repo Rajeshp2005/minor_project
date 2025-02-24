@@ -15,7 +15,6 @@ import seaborn as sns
 import time
 import pickle
 import os
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from deep_translator import GoogleTranslator
 from langdetect import detect
 
@@ -126,33 +125,14 @@ def scrape_reviews(url):
     
     return len(reviews_list)
 
-# Download the trained RandomForest model from Google Drive
-import gdown
-
-download_dir = "C:/Users/Ravi/minor_project-main/api/"  # Change this to your desired path
-output = os.path.join(download_dir, "model_RandomForestClassifier.pkl")
-file_id = "1tBQkSIB5Pt4v345M5FO2sw0OZnet-MOe"  # Replace with your actual file ID
-
-if not os.path.exists(output):
-    print("Model file not found. Downloading now...")
-    gdown.download(f"https://drive.google.com/uc?id={file_id}", output, quiet=False)
-else:
-    print("Model file already exists. Skipping download.")
-
-# Load the trained RandomForest model and vectorizer
-with open(output, 'rb') as file:
+# Load the Logistic Regression model and vectorizer
+with open('C:/Users/Ravi/model/model_LogisticRegression.pkl', 'rb') as file:
     model = pickle.load(file)
-
-print("Model loaded successfully!")
-
-# # If you want to load the model from a local file, use the following code instead
-# with open('model_RandomForestClassifier.pkl', 'rb') as file:
-#     model = pickle.load(file)
 
 with open('C:/Users/Ravi/minor_project-main/api/vectorizer.pkl', 'rb') as file:
     vectorizer = pickle.load(file)
 
-# Function to analyze reviews using the RandomForest model
+# Function to analyze reviews using the Logistic Regression model
 def analyze_reviews_with_rf():
     # Load the scraped reviews
     df = pd.read_csv('reviews.csv')

@@ -2,8 +2,8 @@ import streamlit as st
 import pickle
 
 # Load the trained model
-MODEL_PATH = "model_RandomForestClassifier.pkl"
-VECTORIZER_PATH = "vectorizer.pkl"  # Ensure you saved the vectorizer during training
+MODEL_PATH = "model_LogisticRegression.pkl"
+VECTORIZER_PATH = "vectorizer.pkl"
 
 with open(MODEL_PATH, "rb") as file:
     model = pickle.load(file)
@@ -12,7 +12,7 @@ with open(VECTORIZER_PATH, "rb") as file:
     vectorizer = pickle.load(file)
 
 # Streamlit UI
-st.title("Text Classification with Random Forest")
+st.title("Text Classification with Logistic Regression")
 st.write("Enter text below, and the model will classify it.")
 
 # User input
